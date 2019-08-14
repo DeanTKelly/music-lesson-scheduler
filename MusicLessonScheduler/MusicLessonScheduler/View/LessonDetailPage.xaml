@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicLessonScheduler.View.LessonDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit Lesson" Command="{Binding EditButtonCommand}"/>
+        <ToolbarItem Text="Delete Lesson" Command="{Binding DeleteButtonCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+        <StackLayout BackgroundColor="Black">
+        <Label Text="{Binding LessonName}" FontSize="Title"  BackgroundColor="Teal" 
+                   TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   HeightRequest="45"/>
+            <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Lesson Date: " TextColor="Teal" Grid.Row="0"
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding LessonDate}" TextColor="Teal"
+                               Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                        <Label Text="Lesson Time: " TextColor="Teal" Grid.Row="1"
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="{Binding LessonTime}" TextColor="Teal"
+                               Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Padding="20">
+                    <Label Text="Lesson Notes: " TextColor="Teal" HorizontalTextAlignment="Center"/> 
+            <Label Text="{Binding LessonNotes}" FontSize="Small" HeightRequest="50" TextColor="Teal"/>
+            </StackLayout>
+                    <StackLayout Padding="20">
+                <Button x:Name="shareLessonNotes" Text="Share Lesson Notes" Command="{Binding ShareLessonNotesCommand}"
+                            BackgroundColor="Teal" TextColor="White"/>
+            </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        </StackLayout>
+</ContentPage>

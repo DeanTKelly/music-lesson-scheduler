@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicLessonScheduler.StudentRosterPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <Label Text="Student Roster" FontSize="Title" BackgroundColor="Teal" TextColor="White"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="75"/>
+            <Label Text="Select a student or add a new one." BackgroundColor="Black"
+               TextColor="White" HorizontalTextAlignment="Center"/>
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="StudentsListView" ItemSelected="StudentsListView_ItemSelected"
+                              ItemsSource="{Binding Students}" RefreshCommand="{Binding LoadStudentsCommand}"
+                              IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                              VerticalOptions="FillAndExpand" HasUnevenRows="True" CachingStrategy="RecycleElement">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ContentView>
+                                        <StackLayout>
+                                            <Label Text="{Binding StudentName}" FontSize="Large" VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="CenterAndExpand" TextColor="Teal"/>
+                                        </StackLayout>
+                                    </ContentView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Padding="20">
+                <Button x:Name="addNewStudentButton" BackgroundColor="Teal" Text="Add Student" TextColor="White"
+                        FontSize="Medium" Command="{Binding AddNewStudentCommand}" HeightRequest="50"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicLessonScheduler.View.AddLessonPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <Label Text="New Lesson" FontSize="Title"  BackgroundColor="Teal" TextColor="White"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               HeightRequest="75"/>
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <Label Text="Lesson Name:" TextColor="Teal"/>
+                    <Entry Text="{Binding LessonName}" TextColor="Teal"/>
+                    <Label Text="Lesson Date:" TextColor="Teal"/>
+                    <DatePicker Date="{Binding LessonDate}"/>
+                    <Label Text="Lesson Time:" TextColor="Teal"/>
+                    <Picker ItemsSource="{Binding LessonTimeList}" SelectedItem="{Binding LessonTime}"/>
+                    <Label Text="Set Lesson Reminder" TextColor="Teal"/>
+                    <Switch IsToggled="{Binding LessonReminder}"/>
+                    <StackLayout Padding="10">
+                        <Label Text="Lesson Notes: " TextColor="Teal" HorizontalTextAlignment="Center"/>
+                        <Editor Text="{Binding LessonNotes}" FontSize="Small" HeightRequest="50"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Padding="20">
+                <Button x:Name="saveButton" BackgroundColor="Teal" Text="Save" TextColor="White" 
+                FontAttributes="Bold"  Command="{Binding SaveButtonCommand}"/>
+                <Button x:Name="cancelButton" BackgroundColor="Teal" Text="Cancel" TextColor="White" 
+                FontAttributes="Bold"  Command="{Binding CancelButtonCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

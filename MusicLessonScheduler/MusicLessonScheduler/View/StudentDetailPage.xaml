@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicLessonScheduler.View.StudentDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit Student" Command="{Binding EditStudentCommand}"/>
+        <ToolbarItem Text="Delete Student" Command="{Binding DeleteStudentCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <Label Text="{Binding StudentName}" FontSize="Large"  BackgroundColor="Teal" 
+                   TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   HeightRequest="50"/>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Padding="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Student Phone Number: " TextColor="Teal" Grid.Row="0" 
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding StudentPhone}" TextColor="Teal" Grid.Row="0" 
+                               Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Student Email Address: " TextColor="Teal" Grid.Row="1"
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding StudentEmail}" TextColor="Teal"
+                               Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Current Skill Level: " TextColor="Teal" Grid.Row="2"
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding StudentSkillLevel}" TextColor="Teal"
+                               Grid.Row="2" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                            <Label Text="Instrument: " TextColor="Teal" Grid.Row="3"
+                               Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding StudentInstrument}" TextColor="Teal"
+                               Grid.Row="3" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+                        </Grid>
+                    </StackLayout>                
+                    <Label Text="Music Lessons" FontSize="Large"  BackgroundColor="Teal" 
+                   TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   HeightRequest="50"/>
+                    <StackLayout Padding="10">
+                        <ListView x:Name="LessonListView" ItemsSource="{Binding LessonList}"
+                                  ItemSelected="LessonListView_ItemSelected"
+                                  RefreshCommand="{Binding LoadLessonsCommand}"
+                                  IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          VerticalOptions="FillAndExpand" HasUnevenRows="true" CachingStrategy="RecycleElement">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Height="60">
+                                        <ContentView>
+                                            <StackLayout Padding="10">
+                                                <Label Text="{Binding LessonName}" FontSize="Small"
+                                                       TextColor="Teal" HorizontalTextAlignment="Center" 
+                                                           VerticalOptions="Center"/>
+                                                <DatePicker Date="{Binding LessonDate}" FontSize="Small"  
+                                                            TextColor="MidnightBlue" HorizontalOptions="Center" IsEnabled="False">
+                                                    <DatePicker.Format>MM-dd-yyyy</DatePicker.Format>
+                                                </DatePicker>
+                                            </StackLayout>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Padding="20">
+                <Button Text="Add Lesson" BackgroundColor="Teal"
+                        TextColor="White" Command="{Binding AddLessonCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

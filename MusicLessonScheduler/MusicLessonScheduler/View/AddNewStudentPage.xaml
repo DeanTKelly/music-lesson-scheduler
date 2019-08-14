@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicLessonScheduler.View.AddNewStudentPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <Label Text="New Student" FontSize="Title"  BackgroundColor="Teal" TextColor="White"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               HeightRequest="75"/>
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <Label Text="Student Name:" TextColor="Teal"/>
+                    <Entry Text="{Binding StudentName}" TextColor="Teal"/>
+                    <Label Text="Student Phone Number:" TextColor="Teal"/>
+                    <Entry Text="{Binding StudentPhone}" TextColor="Teal"/>
+                    <Label Text="Student Email Address:" TextColor="Teal"/>
+                    <Entry Text="{Binding StudentEmail}" TextColor="Teal"/>
+                    <Label Text="Current Skill Level:" TextColor="Teal"/>
+                    <Picker ItemsSource="{Binding SkillLevelList}" SelectedItem="{Binding StudentSkillLevel}" TextColor="Teal"/>
+                    <Label Text="Instrument:" TextColor="Teal"/>
+                    <Picker ItemsSource="{Binding InstrumentList}" SelectedItem="{Binding StudentInstrument}" TextColor="Teal"/>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Padding="20">
+                <Button x:Name="saveNewStudentButton" BackgroundColor="Teal" Text="Save" TextColor="White" 
+                FontAttributes="Bold" Command="{Binding SaveNewStudentCommand}"/>
+                <Button x:Name="cancelNewStudentButton" BackgroundColor="Teal" Text="Cancel" TextColor="White" 
+                FontAttributes="Bold" Command="{Binding CancelNewStudentCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
