@@ -39,6 +39,7 @@ namespace MusicLessonScheduler.ViewModel
                 student.StudentInstrument != null;
         }
         public Command CancelNewStudentCommand { get; set; }
+
         async Task ExecuteCancelNewStudentCommand()
         {
             await App.Current.MainPage.Navigation.PopAsync();
