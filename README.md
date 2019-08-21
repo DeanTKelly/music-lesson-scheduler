@@ -1,6 +1,7 @@
 # Music Lesson Scheduler
 
-A Xamarin music lesson scheduling mobile application built as my Software Development Capston.
+A Xamarin music lesson scheduling mobile application built as my Software Development Capstone.
+The login username is "test" and the password is also "test".
 
 # What I Learned
 
