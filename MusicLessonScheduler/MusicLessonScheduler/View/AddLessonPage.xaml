@@ -12,9 +12,9 @@
                     <Label Text="Lesson Name:" TextColor="Teal"/>
                     <Entry Text="{Binding LessonName}" TextColor="Teal"/>
                     <Label Text="Lesson Date:" TextColor="Teal"/>
-                    <DatePicker Date="{Binding LessonDate}"/>
+                    <DatePicker Date="{Binding LessonDate}" TextColor="Teal"/>
                     <Label Text="Lesson Time:" TextColor="Teal"/>
-                    <Picker ItemsSource="{Binding LessonTimeList}" SelectedItem="{Binding LessonTime}"/>
+                    <Picker ItemsSource="{Binding LessonTimeList}" SelectedItem="{Binding LessonTime}" TextColor="Teal"/>
                     <Label Text="Set Lesson Reminder" TextColor="Teal"/>
                     <Switch IsToggled="{Binding LessonReminder}"/>
                     <StackLayout Padding="10">
